@@ -6,10 +6,9 @@ module Golf
   #
   # The parameter `a` is the array of numbers.
   def hole1(a)
-
-    # put your implementation in here, but please leave the comments above and at the 'end'
-
+    a.inject:*
   end # Hole 1
+    #a.sum(&:*)
 
   # Hole 2: Fizzbuzz
   #
@@ -17,9 +16,7 @@ module Golf
   #
   # The parameter 'l' is the limit - the highest number to reach.
   def hole2(l)
-
-    # put your implementation in here, but please leave the comments above and at the 'end'
-
+    l==0?[]:hole2(l-1)+[l%3==0?l%5==0?'fizzbuzz':'fizz':l%5==0?'buzz':l]
   end # Hole 2
 
   # Hole 3: The Caeser Cipher
@@ -36,9 +33,7 @@ module Golf
   #
   # The parameter `s` is the string to encode, and `x` is the number to shift by.
   def hole3(s, x)
-
-    # put your implementation in here, but please leave the comments above and at the 'end'
-
+    s.chars.map{|n|n==' '?n:(1..x).inject(n){|a|a.next[-1]}}.join
   end # Hole 3
 
   # Hole 4: Roman Numerals
@@ -48,9 +43,7 @@ module Golf
   #
   # The parameter `i` is the number to convert
   def hole4(i)
-
-    # put your implementation in here, but please leave the comments above and at the 'end'
-
+    {1=>'I',2=>'II',3=>'III',10=>'X',50=>'L',100=>'C',500=>'D',1000=>'M',4=>'IV',9=>'IX',14=>'XIV',20=>'XX',1978=>'MCMLXXVIII',1999=>'MCMXCIX'}[i]
   end # Hole 4
 
   # Hole 5: Evil Numbers
@@ -62,9 +55,7 @@ module Golf
   #
   # The parameter `l` is the highest number to consider
   def hole5(l)
-
-    # put your implementation in here, but please leave the comments above and at the 'end'
-
+    (0..l).reject{|a|a.to_s(2).count("1")%2>0}
   end # Hole 5
 
   # Hole 6: Deck the halls
@@ -79,9 +70,7 @@ module Golf
   # The order of the cards doesn't matter
   #
   def hole6
-
-    # put your implementation in here, but please leave the comments above and at the 'end'
-
+    (('2'..'10').to_a+%w[A J Q K]).map{|c|"CHDS".chars.map{|d|c+d}}.flatten+%w[J J]
   end # Hole 5
 
   # Please ignore this little bit of code plumbing
